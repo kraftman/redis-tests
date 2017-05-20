@@ -53,7 +53,7 @@ local function RunTests(host, port)
 end
 
 app:get('/spiped',function()
-
+  RunTests()
 end)
 
 return app
