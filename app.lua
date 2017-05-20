@@ -36,7 +36,7 @@ local function RunTests(host, port)
     ngx.say('failed to connect')
     return
   end
-  local count = 1000
+  local count = 10000
   local a = gettimeofday()
   for i = 1, count do
     red:set('key'..i,'value'..i)
@@ -53,7 +53,7 @@ local function RunTests(host, port)
 end
 
 app:get('/spiped',function()
-  RunTests()
+  RunTests('163.172.177.164', 6379)
 end)
 
 return app
